@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 
 function Message({ message }) {
@@ -8,6 +9,8 @@ function Message({ message }) {
   const chatColor = itsMe ? "bg-blue-500" : "";
 
   const createdAt = new Date(message.createdAt);
+  const currentDate = new Date();
+  const dateCheck = moment(currentDate).format('DD-MM-YYYY') == moment(createdAt).format('DD-MM-YYYY')
   const formattedTime = createdAt.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
@@ -19,7 +22,7 @@ function Message({ message }) {
           <div className={`chat-bubble text-white ${chatColor}`}>
             {message.message}
           </div>
-          <div className="chat-footer">{formattedTime}</div>
+          <div className="chat-footer">{dateCheck ? formattedTime : moment(createdAt).format('DD-MM-YYYY HH:mm:ss')}</div>
         </div>
       </div>
     </div>
