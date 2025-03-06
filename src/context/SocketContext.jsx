@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthProvider";
 import io from "socket.io-client";
+import { url } from "../../url";
 const socketContext = createContext();
+
 
 // it is a hook.
 export const useSocketContext = () => {
@@ -15,7 +17,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5002", {
+      const socket = io(`${url}`, {
         query: {
           userId: authUser.user._id,
         },
