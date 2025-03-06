@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Cookies } from "react-cookie";
+import { url } from "../../url";
 
 function Login() {
   const [authUser, setAuthUser] = useAuth();
@@ -23,7 +24,7 @@ function Login() {
     };
 
     axios
-      .post("http://localhost:5002/api/user/login", userInfo)
+      .post(`${url}/api/user/login`, userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");

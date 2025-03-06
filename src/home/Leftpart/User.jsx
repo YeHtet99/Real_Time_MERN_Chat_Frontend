@@ -8,6 +8,9 @@ function User({ user }) {
   const isSelected = selectedConversation?._id === user._id;
   const { socket, onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(user._id);
+
+  console.log("onlineUsers",onlineUsers)
+
   return (
     <div
       className={`hover:bg-slate-600 duration-300 ${
@@ -23,7 +26,7 @@ function User({ user }) {
           </div>
         </div>
         <div>
-          <h1 className=" font-bold">{user.name}</h1>
+          <h1 className=" font-bold">{user.fullname}</h1>
           <span>{user.email}</span>
         </div>
       </div>

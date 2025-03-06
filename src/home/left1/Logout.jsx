@@ -4,6 +4,7 @@ import axios from "axios";
 // import Cookies from "js-cookie";
 import { Cookies } from "react-cookie";
 import toast from "react-hot-toast";
+import { url } from "../../../url";
 
 function Logout() {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ function Logout() {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5002/api/user/logout");
+      const res = await axios.post(`${url}/api/user/logout`);
       localStorage.removeItem("ChatApp");
       // Cookies.remove("jwt");
       cookies.remove('userId')
