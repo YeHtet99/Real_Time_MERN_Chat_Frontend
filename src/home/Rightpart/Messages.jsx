@@ -18,6 +18,9 @@ function Messages() {
       }
     }, 100);
   }, [messages]);
+  const uniqueMessages = [
+    ...new Map(messages?.map(item => [item._id, item]))?.values()
+  ];
   return (
     <div
       className="flex-1 overflow-y-auto"
@@ -26,15 +29,15 @@ function Messages() {
       {loading ? (
         <Loading />
       ) : (
-        messages.length > 0 &&
-        messages.map((message) => (
+        uniqueMessages?.length > 0 &&
+        uniqueMessages?.map((message) => (
           <div key={message._id} ref={lastMsgRef}>
             <Message message={message} />
           </div>
         ))
       )}
 
-      {!loading && messages.length === 0 && (
+      {!loading && uniqueMessages?.length === 0 && (
         <div>
           <p className="text-center mt-[20%]">
             Say! Hi to start the conversation
