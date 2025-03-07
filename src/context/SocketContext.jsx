@@ -21,6 +21,10 @@ export const SocketProvider = ({ children }) => {
         query: {
           userId: authUser.user._id,
         },
+        reconnection: true, // Enable reconnection
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 5000, // Wait 2s before retrying
+        reconnectionDelayMax: 5000, // Max delay before retrying
       });
       setSocket(socket);
 
