@@ -39,10 +39,10 @@ export const SocketProvider = ({ children }) => {
         setOnlineUsers(users);
       });
 
-      socket.on("ping", () => {
-        console.log("Ping received from server");
-        socket.emit("pong");  // Respond to the ping with a pong
-      });
+      // socket.on("ping", () => {
+      //   console.log("Ping received from server");
+      //   socket.emit("pong");  // Respond to the ping with a pong
+      // });
 
       // Handle successful reconnection
       socket.on("reconnect", (attempt) => {
