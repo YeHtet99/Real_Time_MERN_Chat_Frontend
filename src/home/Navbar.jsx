@@ -44,7 +44,7 @@ function Navbar() {
           className="w-10 h-10 rounded-full"
         />
         <span className="font-medium">{authUser.user.fullname}</span>
-        <button onClick={handleLogout} className="px-4 py-1 bg-red-600 text-white font-semibold rounded-md shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+        <button onClick={handleLogout} className="px-4 py-1 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
           Logout
         </button>
       </div>
