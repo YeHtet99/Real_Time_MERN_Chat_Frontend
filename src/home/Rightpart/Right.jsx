@@ -8,10 +8,9 @@ import { CiMenuFries } from "react-icons/ci";
 
 function Right() {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  console.log("selectedConversation",selectedConversation)
-  // useEffect(() => {
-  //   return setSelectedConversation(null);
-  // }, [setSelectedConversation]);
+  useEffect(() => {
+    return setSelectedConversation(null);
+  }, [setSelectedConversation]);
   return (
     <div className="w-full bg-slate-900 text-gray-300">
       <div>
@@ -22,7 +21,7 @@ function Right() {
             <Chatuser />
             <div
               className=" flex-1 overflow-y-auto"
-              style={{ maxHeight: "calc(82vh - 8vh)" }}
+              style={{ maxHeight: "calc(88vh - 8vh)" }}
             >
               <Messages />
             </div>
