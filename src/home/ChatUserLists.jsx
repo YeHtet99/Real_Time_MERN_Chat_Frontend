@@ -15,7 +15,7 @@ function ChatUserLists(user) {
         <div className="w-full pl-6 pt-6">
           <h1 className="text-l font-bold text-white">User Lists</h1>
         </div>
-        <div className="grid grid-cols-3 gap-6 w-full max-w-5xl p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-5xl p-6">
           {allUsers.map((user) => (
             <div
               key={user.id}
@@ -30,7 +30,7 @@ function ChatUserLists(user) {
               <p className="mb-3 text-sm">{user.email}</p>
               <button onClick={()=> {
                 setSelectedConversation(user)
-                navigate('/chat')
+                // navigate('/chat')
                 }} className="px-12 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                 Chat
               </button>

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Chatuser(user) {
-  const { selectedConversation } = useConversation();
+  const { selectedConversation,setSelectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
   const navigate = useNavigate()
 
@@ -35,7 +35,7 @@ function Chatuser(user) {
       </div>
 
       {/* Right side - Button */}
-      <button onClick={()=>navigate('/')} className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center" style={{gap:'5px'}}>
+      <button onClick={()=>setSelectedConversation(null)} className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 flex items-center" style={{gap:'5px'}}>
         <FaLongArrowAltLeft className="text-xl" />
         <p className="mb-0">Back</p>
       </button>
