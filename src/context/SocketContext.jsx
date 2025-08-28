@@ -4,8 +4,6 @@ import io from "socket.io-client";
 import { url } from "../../url";
 const socketContext = createContext();
 
-
-// it is a hook.
 export const useSocketContext = () => {
   return useContext(socketContext);
 };
@@ -28,12 +26,11 @@ export const SocketProvider = ({ children }) => {
       setSocket(socket);
 
       socket.on("ping", () => {
-        socket.emit("pong");  // Respond to the ping with a pong
+        socket.emit("pong");
       });
  
       // Listen for disconnect event
-      socket.on("disconnect", (reason) => {
-        console.log("Disconnected from the server due to:", reason);
+      socket.on("disconnect", (v) => {
       });
 
       // Cleanup on disconnection or unmount
