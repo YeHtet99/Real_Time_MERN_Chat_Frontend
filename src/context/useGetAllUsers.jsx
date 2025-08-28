@@ -13,11 +13,11 @@ function useGetAllUsers() {
       query: { userId },
       reconnection: true, // Enable reconnection
         reconnectionAttempts: Infinity,
-        reconnectionDelay: 5000, // Wait 2s before retrying
+        reconnectionDelay: 5000, // Wait 5s before retrying
         reconnectionDelayMax: 5000,
     });
 
-    // Listen for updated user list
+    // Listen for user list
     socket.on("getAllUsers", (users) => {
       setAllUsers(users);
     });

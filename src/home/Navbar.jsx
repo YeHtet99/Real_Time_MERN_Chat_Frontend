@@ -25,7 +25,6 @@ function Navbar() {
       toast.success("Logged out successfully");
       window.location.reload();
     } catch (error) {
-      console.log("Error in Logout", error);
       toast.error("Error in logging out");
     }
   };

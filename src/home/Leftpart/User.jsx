@@ -9,8 +9,6 @@ function User({ user }) {
   const { socket, onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(user._id);
 
-  console.log("onlineUsers",onlineUsers)
-
   return (
     <div
       className={`hover:bg-slate-600 duration-300 ${

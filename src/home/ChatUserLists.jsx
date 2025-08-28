@@ -1,13 +1,11 @@
 import useConversation from "../statemanage/useConversation.js";
 import useGetAllUsers from "../context/useGetAllUsers.jsx";
 import userProfile from './../images/user.jpg'
-import { useNavigate } from "react-router-dom";
 
 function ChatUserLists(user) {
 
   const [allUsers, loading] = useGetAllUsers();
-  const { selectedConversation, setSelectedConversation } = useConversation();
-  const navigate = useNavigate()
+  const { setSelectedConversation } = useConversation();
 
 
   return (

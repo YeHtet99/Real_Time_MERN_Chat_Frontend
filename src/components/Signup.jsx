@@ -5,14 +5,17 @@ import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { url } from "../../url";
+import { useNavigate } from "react-router-dom";
 function Signup() {
   const [authUser, setAuthUser] = useAuth();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
 
   const password = watch("password", "");
   const confirmPassword = watch("confirmPassword", "");
@@ -28,15 +31,13 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-    // console.log(userInfo);
     await axios
       .post(`${url}/api/user/signup`, userInfo)
       .then((response) => {
         if (response.data) {
           toast.success("Signup successful");
         }
-        localStorage.setItem("ChatApp", JSON.stringify(response.data));
-        setAuthUser(response.data);
+        navigate('/login')
       })
       .catch((error) => {
         if (error.response) {

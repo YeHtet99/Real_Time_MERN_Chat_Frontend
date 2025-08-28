@@ -7,11 +7,7 @@ import { useAuth } from "../../context/AuthProvider.jsx";
 import { CiMenuFries } from "react-icons/ci";
 
 function Right() {
-  const { selectedConversation, setSelectedConversation } = useConversation();
-  console.log("selectedConversation",selectedConversation)
-  // useEffect(() => {
-  //   return setSelectedConversation(null);
-  // }, [setSelectedConversation]);
+  const { selectedConversation } = useConversation();
   return (
     <div className="w-full bg-slate-900 text-gray-300">
       <div>
