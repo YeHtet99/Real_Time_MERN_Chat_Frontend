@@ -8,28 +8,29 @@ import { CiMenuFries } from "react-icons/ci";
 
 function Right() {
   const { selectedConversation } = useConversation();
+
   return (
-    <div className="w-full bg-slate-900 text-gray-300">
-      <div>
-        {!selectedConversation ? (
-          <NoChatSelected />
-        ) : (
-          <>
-            <Chatuser />
-            <div
-              className=" flex-1 overflow-y-auto"
-              style={{ maxHeight: "calc(82vh - 8vh)" }}
-            >
-              <Messages />
-            </div>
-            <Typesend />
-          </>
-        )}
-      </div>
+    <div className="flex flex-col h-[calc(100vh-64px)] bg-slate-900 text-gray-300">
+      {/* if no chat selected */}
+      {!selectedConversation ? (
+        <NoChatSelected />
+      ) : (
+        <>
+          {/* Chat header */}
+          <Chatuser />
+
+          {/* Messages should flex & scroll */}
+          <div className="flex-1 overflow-y-auto">
+            <Messages />
+          </div>
+
+          {/* Input field fixed bottom */}
+          <Typesend />
+        </>
+      )}
     </div>
   );
 }
-
 export default Right;
 
 const NoChatSelected = () => {
